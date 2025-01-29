@@ -1,0 +1,142 @@
+.profile {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .profile__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+  
+  .profile__name {
+    font-size: 28px;
+    margin: 0 0 10px;
+  }
+  
+  .profile__location {
+    font-size: 16px;
+    color: #717171;
+    margin: 0;
+  }
+  
+  .profile__stats {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px;
+    margin-bottom: 30px;
+  }
+  
+  .profile__stat {
+    text-align: center;
+  }
+  
+  .profile__stat-value {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ad0bde;
+    margin: 0;
+  }
+  
+  .profile__stat-label {
+    font-size: 14px;
+    color: #717171;
+    margin: 5px 0 0;
+  }
+  
+  .profile__about {
+    margin-bottom: 30px;
+  }
+  
+  .profile__about-title {
+    font-size: 20px;
+    margin: 0 0 10px;
+  }
+  
+  .profile__about-text {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #222222;
+  }
+  
+  .profile__listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .profile__listing {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .profile__listing-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .profile__listing-info {
+    padding: 15px;
+  }
+  
+  .profile__listing-title {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  
+  .profile__listing-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ad0bde;
+  }
+  
+  .profile__edit-button {
+    background-color: #ad0bde;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile__edit-button:hover {
+    background-color: #9a0ac7;
+  }
+  
+  @media (max-width: 768px) {
+    .profile__header {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .profile__avatar {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .profile__stats {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .profile__stat {
+      flex-basis: 33.33%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  

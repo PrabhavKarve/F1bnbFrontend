@@ -1,0 +1,133 @@
+import React, { useState } from 'react';
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  Link,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
+import { purple } from '@mui/material/colors';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#ad0bde',
+    },
+    secondary: {
+      main: purple[500], // Corrected usage of purple
+    },
+  },
+});
+
+const AuthPage = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(null); // Removed type annotation for JavaScript
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setError(null); // Clear any previous errors
+    if (!email.includes('@')) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long.');
+      return;
+    }
+    if (!isLogin && password !== confirmPassword) {
+      setError("Passwords don't match!");
+      return;
+    }
+    if (isLogin) {
+      console.log('Logging in with:', email, password);
+      // Implement login logic here
+    } else {
+      console.log('Registering with:', email, password);
+      // Implement registration logic here
+    }
+  };
+
+  return (
+    <div>
+      <Typography component="h1" variant="h5" color="primary">
+        {isLogin ? 'Sign In' : 'Sign Up'}
+      </Typography>
+      {error && (
+        <Typography
+          variant="body2"
+          color="error"
+          sx={{ mt: 2, textAlign: 'center' }}
+        >
+          {error}
+        </Typography>
+      )}
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="email"
+          label="Email Address"
+          name="email"
+          autoComplete="email"
+          autoFocus
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          name="password"
+          label="Password"
+          type="password"
+          id="password"
+          autoComplete="current-password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        {!isLogin && (
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            name="confirmPassword"
+            label="Confirm Password"
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        )}
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          {isLogin ? 'Sign In' : 'Sign Up'}
+        </Button>
+        <Box sx={{ textAlign: 'center' }}>
+          <Button
+            variant="text"
+            onClick={() => setIsLogin(!isLogin)}
+            sx={{ cursor: 'pointer', textTransform: 'none' }}
+          >
+            {isLogin
+              ? "Don't have an account? Sign Up"
+              : "Already have an account? Sign In"}
+          </Button>
+        </Box>
+      </Box>
+    </div>
+  );
+};
+
+export default AuthPage;

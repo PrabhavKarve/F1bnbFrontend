@@ -1,0 +1,52 @@
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+.simple-menu {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .simple-menu__button {
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: rgb(253, 244, 255);;
+  }
+  
+  .simple-menu__button:hover {
+    background-color: #e4b4ea;
+  }
+  
+  .simple-menu__dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    display: none;
+    min-width: 120px;
+  }
+  
+  .simple-menu__dropdown--open {
+    display: block;
+  }
+  
+  .simple-menu__item {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  
