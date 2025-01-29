@@ -216,9 +216,6 @@ export default function ExploreHome() {
                     <Typography sx={{ fontWeight: 'bold', color: '#ad0bde' }}>
                       ${property.price_per_night} / night
                     </Typography>
-                    <Typography sx={{ fontWeight: 'bold', color: '#ad0bde' }}>
-                      ${property.city}, ${property.state} 
-                    </Typography>
                   </CardContent>
                 </Card>
               </Grid>
